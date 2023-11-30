@@ -10,88 +10,92 @@
 <body>
 	<br>
 	<div align="center">
-		<table class=signupTable>
-			<tr class=signupTr>
-				<td colspan="2"><span class=title>회원가입</span></td>
-				<td></td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 아이디</th>
-				<td>
-					<input type="email" name=userId id=userId onchange="userinfo()" maxlength="30">
-					&emsp;
-					<input type="button" class="btn btn-outline-dark" id=idCk value="중복확인" onclick="idCK()">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 비밀번호</th>
-				<td>
-					<input type="password" name=pw id=pw onchange="userinfo()" maxlength="15">
-					<span style="padding-left: 10px; color: red;" id=pwLen>8자리 비밀번호를 입력해주세요.</span>
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 비밀번호 확인</th>
-				<td>
-					<input type="password" name=pwCk id=pwCk onchange="userinfo()"  maxlength="15">
-					<span style="padding-left: 10px; color: red;" id=pwCkText>비밀번호 불일지</span>
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 이름</th>
-				<td>
-					<input type="text" name=userName id=userName onchange="userinfo()" maxlength="10">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 닉네임</th>
-				<td>
-					<input type="text" name=nick id=nick onchange="userinfo()" maxlength="10">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 전화번호</th>
-				<td>
-					<input type="tel" class=tel name=tel id=tel onchange="userinfo()" maxlength="13" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>그룹</th>
-				<td>
-					<input type="text" name=group id=group disabled="disabled" placeholder="회원">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 주소</th>
-				<td>
-					<input type="text" id="sample6_postcode" disabled="disabled" maxlength="10">
-					&emsp;
-					<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 검색"><br>
-					<input type="text" id="sample6_address" disabled="disabled" maxlength="30"><br>
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>프로필</th>
-				<td>
-					<input type="file" name=profilePicture id=profilePicture onchange="userinfo()">
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 2차 비밀번호</th>
-				<td>
-					<input type="password" name=acornPw id=acornPw onchange="userinfo()" maxlength="15">
-					<span style="padding-left: 10px; color: red;" id=acornPwLen>8자리 비밀번호를 입력해주세요.</span>
-				</td>
-			</tr>
-			<tr class=signupTr>
-				<th>* 2차 비밀번호 확인</th>
-				<td>
-					<input type="password" name=acornPwCk id=acornPwCk onchange="userinfo()" maxlength="15">
-					<span style="padding-left: 5px; color: red;" id=acornPwCkText>2차 비밀번호 불일지</span>
-				</td>
-			</tr>
-		</table>
-		<button class="btn btn-danger" style="margin: 20px; width: 150px; height: 50px;" onclick="signup()">회원가입</button>
+		<form action="/signup.do" method="post" enctype="multipart/form-data" onsubmit="return checkInfo()">
+			<table class=signupTable>
+				<tr class=signupTr>
+					<td colspan="2"><span class=title>회원가입</span></td>
+					<td></td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 아이디</th>
+					<td>
+						<input type="email" name=userId id=userId onchange="userinfo()" maxlength="30" placeholder="email@naver.com" value=@naver.com>
+						&emsp;
+						<input type="button" class="btn btn-outline-dark" id=idCk value="중복확인" onclick="idCK()">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 비밀번호</th>
+					<td>
+						<input type="password" name=pw id=pw onchange="userinfo()" maxlength="15" value=12345678>
+						<span style="padding-left: 10px; color: red;" id=pwLen>8자리 비밀번호를 입력해주세요.</span>
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 비밀번호 확인</th>
+					<td>
+						<input type="password" name=pwCk id=pwCk onchange="userinfo()"  maxlength="15" value=12345678>
+						<span style="padding-left: 10px; color: red;" id=pwCkText>비밀번호 불일지</span>
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 이름</th>
+					<td>
+						<input type="text" name=userName id=userName onchange="userinfo()" maxlength="10">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 닉네임</th>
+					<td>
+						<input type="text" name=nick id=nick onchange="userinfo()" maxlength="10">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 전화번호</th>
+					<td>
+						<input type="tel" class=tel name=tel id=tel onchange="userinfo()" maxlength="13" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" value=010-1234-1234>
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>그룹</th>
+					<td>
+						<input type="text" name=group id=group disabled="disabled" placeholder="회원">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 주소</th>
+					<td>
+						<input type="text" id="sample6_postcode" disabled="disabled" maxlength="10">
+						&emsp;
+						<input type="button" class="btn btn-outline-dark" onclick="sample6_execDaumPostcode()" value="우편번호 검색"><br>
+						<input type="text" id="sample6_address" disabled="disabled" maxlength="30"><br>
+						<input type="hidden" id=addr name=addr value="">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>프로필</th>
+					<td>
+						<input type="file" name=profileImg id=profileImg onchange="userinfo()">
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 2차 비밀번호</th>
+					<td>
+						<input type="password" name=acornPw id=acornPw onchange="userinfo()" maxlength="15" value=12345678>
+						<span style="padding-left: 10px; color: red;" id=acornPwLen>8자리 비밀번호를 입력해주세요.</span>
+					</td>
+				</tr>
+				<tr class=signupTr>
+					<th>* 2차 비밀번호 확인</th>
+					<td>
+						<input type="password" name=acornPwCk id=acornPwCk onchange="userinfo()" maxlength="15" value=12345678>
+						<span style="padding-left: 5px; color: red;" id=acornPwCkText>2차 비밀번호 불일지</span>
+					</td>
+				</tr>
+			</table>
+			<!-- <button class="btn btn-danger" style="margin: 20px; width: 150px; height: 50px;" onclick="signup()">회원가입</button> -->
+			<input type="submit" class="btn btn-danger" style="margin: 20px; width: 150px; height: 50px;" value="회원가입">
+		</form>
 	</div>
 </body>
 <section style="min-height: 30vh;"></section>
@@ -147,37 +151,66 @@
 	        }
 	    });
 	});
+	
+	// form null 체크
+	function checkInfo() {
+	    var userId = document.getElementById('userId').value;
+	    var pw = document.getElementById('pw').value;
+	    var pwCk = document.getElementById('pwCk').value;
+	    var userName = document.getElementById('userName').value;
+	    var nick = document.getElementById('nick').value;
+	    var tel = document.getElementById('tel').value;
+	    var sample6_postcode = document.getElementById('sample6_postcode').value;
+	    var acornPw = document.getElementById('acornPw').value;
+	    var acornPwCk = document.getElementById('acornPwCk').value;
+	
+	    if (userId == "") {
+	        alert("아이디를 입력해주세요.");
+	        document.getElementById('userId').focus();
+	        return false;
+	    } else if (!idChecked) {
+	        alert("아이디 중복확인을 완료해주세요.");
+	        return false;
+	    } else if (userName == "") {
+	        alert("이름을 입력해주세요.");
+	        document.getElementById('userName').focus();
+	        return false;
+	    } else if (nick == "") {
+	        alert("닉네임을 입력해주세요.");
+	        document.getElementById('nick').focus();
+	        return false;
+	    } else if (tel == "") {
+	        alert("전화번호를 입력해주세요.");
+	        document.getElementById('tel').focus();
+	        return false;
+	    } else if (sample6_postcode == "") {
+	        alert("주소를 입력해주세요.");
+	        document.getElementById('sample6_postcode').focus();
+	        return false;
+	    } else if (pw != pwCk) {
+	        alert("비밀번호를 확인해주세요.")
+	        document.getElementById('pw').focus();
+	        return false;
+	    } else if (acornPw != acornPwCk) {
+	        alert("2차 비밀번호를 확인해주세요.")
+	        document.getElementById('acornPw').focus();
+	        return false;
+	    }
+	
+	    return true;
+}
 
-	// 회원 정보 객체에 할당
+	 // 회원 정보 객체에 할당
 	function userinfo() {
-		var userId = document.getElementById('userId').value;
-		var pw = document.getElementById('pw').value;
-		var pwCk = document.getElementById('pwCk').value;
-		var userName = document.getElementById('userName').value;
-		var nick = document.getElementById('nick').value;
-		var tel = document.getElementById('tel').value;
 		var postcode = document.getElementById('sample6_postcode').value;
 		var address = document.getElementById('sample6_address').value;
-		var profilePicture = document.getElementById('profilePicture').value;
-		var acornPw = document.getElementById('acornPw').value;
-		var acornPwCk = document.getElementById('acornPwCk').value;
+		var addr = postcode + "_" + address;
 		
-		var info = {};
-		
-		info.userId = userId;
-		info.pw = pw;
-		info.userName = userName;
-		info.nick = nick;
-		info.tel = tel;
-		info.addr = postcode + "_" + address;
-		info.profileImgName = profilePicture;
-		info.profileImg = profilePicture;
-		info.acornPw = acornPw;
-		return info;
+		document.getElementById("addr").value = addr;
 	}
 	
 	
-	
+	/*
 	// 회원가입
 	function signup() {
 		var path = getContextPath();
@@ -246,7 +279,7 @@
 				}
 			}
 		})
-	}
+	} */
 
 	function sample6_execDaumPostcode() {
 	    new daum.Postcode({

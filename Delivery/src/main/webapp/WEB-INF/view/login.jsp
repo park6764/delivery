@@ -18,14 +18,14 @@
 				<td>
 					<br>
 					<span class=inputText>아이디</span><br>
-					<input type="text" class=inputId id=userId name=userId value="ppk@naver.com">
+					<input type="text" class=inputId id=userId name=userId value="admin@naver.com" onkeypress="checkEnter(event)">
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<br>
 					<span class=inputText>비밀번호</span><br>
-					<input type="password" class=inputPw id=pw name=pw value="12345678">
+					<input type="password" class=inputPw id=pw name=pw value="12345678" onkeypress="checkEnter(event)">
 				</td>
 			</tr>
 			<tr>
@@ -84,6 +84,13 @@
 				}
 			}
 		})
+	}
+	
+	// 엔터키 입력 시 버튼 클릭
+	function checkEnter(event) {
+		if (event.keyCode === 13) {
+			login();
+		}
 	}
 </script>
 <%@ include file="./include/footer2.jsp" %>

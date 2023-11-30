@@ -4,15 +4,23 @@
 <mapper namespace="com.korea.js.dao.RestaurantDao">
 	<insert id="addRes">
 		INSERT INTO RESTAURANT(
-			OWNERID															/* 오너 아이디 */
-			, RESTAURANTNAME												/* 레스토랑 이름 */
-			, RESTAURANTIMG													/* 레스토랑 이미지 */
-		) VALUES (
-			#{ ownerId }													/* param 오너 아이디 */    
-		    , #{ restaurantName }											/* param 레스토랑 이름 */   
-		    , #{ restaurantImg }											/* param 레스토랑 이미지 */   
+			OWNERID															             /* 오너 아이디 */
+			, RESTAURANTNAME												             /* 레스토랑 이름 */
+			, RESTAURANTIMG													             /* 레스토랑 이미지 */
+		) VALUES (                                                                       
+			#{ ownerId }													             /* param 오너 아이디 */    
+		    , #{ restaurantName }											             /* param 레스토랑 이름 */   
+		    , #{ restaurantImg }											             /* param 레스토랑 이미지 */   
 		)
 	</insert>
+	<select id="restaurants" resultType="com.korea.js.vo.Restaurant">
+		SELECT
+			RESTAURANTNAME                                                               /* 레스토랑 이름 */  
+			, OWNERID                                                                    /* 오너 아이디 */ 
+			, (SELECT USERNAME FROM USER WHERE USERID = OWNERID) AS ownerName        	 /* 오너 이름 */ 
+		FROM
+			RESTAURANT
+	</select>
 </mapper>
 
 

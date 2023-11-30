@@ -134,7 +134,7 @@ select:hover {
 		var selectedChanges = [];
 
 		$("table input[type='checkbox']:checked").each(function () {
-            const userId = "${userInfo.userId}";
+            const userId = $(this).closest("tr").find("td:eq(1)").text();
             const group = $(this).closest("tr").find("select[name=groupName]").val();
             const role = "${userInfo.group}";
             selectedChanges.push({ userId, group, role });

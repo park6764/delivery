@@ -99,6 +99,17 @@
 								<a href="/admin_restaurant.do">restaurants</a>
 							</span>
 						</c:if>
+						<c:if test="${ userInfo.group eq '오너' }">
+							<span style="padding-right: 25px; font-weight: bold;">
+								<a href="/">order</a>
+							</span>
+							<span style="padding-right: 25px; font-weight: bold;">
+								<a href="/">operating profit</a>
+							</span>
+							<span style="padding-right: 25px; font-weight: bold;">
+								<a href="/owner_menu.do">menu</a>
+							</span>
+						</c:if>
 						<img class=ap src="/img/도토리.png" width=30 height="30" style="padding-bottom: 10px; padding-right: 10px;">
 						<fmt:formatNumber value="${ userInfo.acornCoin }" pattern="#,###" />
 						<span style="padding-right: 15px;"></span>
