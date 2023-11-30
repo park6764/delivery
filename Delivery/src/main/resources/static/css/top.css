@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+/* 탑 */
+
+.homeLeft {
+	padding-left: 150px;
+}
+
+.logo {
+  color: red;
+  font-weight: 900px;
+  font-size: 1.2em;
+}
+.topTable {
+	width: 100%
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 회원가입 */
+
+.title {
+	font-size: 30px;
+    font-weight: bold;
+	margin: 20px;
+}
+.signupTable {
+	width: 35%
+}
+
+.signupTr{
+	border-bottom: 2px solid #ddd;
+    height: 50px;
+}
+th {
+	background-color: #f2f2f2; 
+	text-align: center;
+}
+
+.tel:invalid {
+  background-color: ivory;
+  border: none;
+  outline: 2px solid red;
+  border-radius: 5px;
+}
+
+#userId:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+ 
+/* 로그인 */
+        
+.loginT {
+	width: 20%
+}       
+        
+.loginTr{
+	border-bottom: 3px solid #ddd;
+    height: 50px;
+}        
+   
+.inputText {
+	font-size: 15px;
+    font-weight: bold;
+}    
+        
+.inputId, .inputPw {
+	background-color: white;
+    border: none;
+    outline: 2px solid black;
+    border-radius: 5px;
+    width: 100%;
+    height:40px;       
+ }       
+ 
+ .pill-button {
+    display: inline-block;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 25px; /* 알약 모양의 버튼을 만들기 위한 값 */
+    background-color: #f2f2f2; /* 라이트 그레이 색상 설정 */
+    color: #999999; /* 텍스트 색상 설정 */
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과를 위한 설정 */
+
+    /* 선택된 상태일 때의 스타일을 지정할 수 있습니다. */
+    &:hover {
+        background-color: #ccc; /* 호버 시의 배경 색상 설정 */
+    }
+ }   
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+        

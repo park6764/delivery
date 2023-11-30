@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.js.dao.UserDao">
+	<insert id="signup">
+		INSERT INTO USER(
+			USERID													/* 아이디 */
+			, PW													/* 비밀번호 */
+			, USERNAME												/* 이름 */
+			, NICK													/* 별명 */
+			, TEL													/* 전화번호 */
+			, ADDR													/* 주소 */
+			, `GROUP`												/* 그룹 */
+			, ACORNCOIN												/* 도토리 */
+			, ACORNPW												/* 2차 비밀번호 */
+			, PROFILEIMGNAME										/* 파일이름 */
+			, PROFILEIMG											/* 실제파일 */
+			, DORMANTACCOUNT										/* 휴면 여부 */
+		) VALUES (
+			#{ userId }												/* param 아이디 */    
+		    , #{ pw }												/* param 비밀번호 */   
+		    , #{ userName }											/* param 이름 */     
+		    , #{ nick }												/* param 별명 */     
+		    , #{ tel }												/* param 전화번호 */   
+		    , #{ addr }												/* param 주소 */     
+		    , #{ group }											/* param 그룹 */     
+		    , #{ acornCoin }										/* param 도토리 */    
+		    , #{ acornPw }											/* param 2차 비밀번호 */
+		    , #{ profileImgName }									/* param 파일이름 */   
+		    , #{ profileImg }										/* param 실제파일 */   
+		    , #{ dormantAccount }									/* param 휴면 여부 */  
+		)
+	</insert>
+	<select id="idCk" resultType="String">
+		SELECT
+			USERID													/* 아이디 */
+		FROM
+			USER													/* 유저 테이블 */
+		WHERE
+			BINARY USERID = #{ userId }								/* param 아이디 */
+	</select>
+	<select id="login">
+		SELECT
+			USERID													/* 아이디 */     
+			, PW													/* 비밀번호 */    
+			, USERNAME												/* 이름 */      
+			, NICK													/* 별명 */      
+			, TEL													/* 전화번호 */    
+			, ADDR													/* 주소 */      
+			, `GROUP`												/* 그룹 */      
+			, ACORNCOIN												/* 도토리 */     
+			, ACORNPW												/* 2차 비밀번호 */ 
+			, PROFILEIMGNAME										/* 파일이름 */    
+			, PROFILEIMG											/* 실제파일 */    
+			, DORMANTACCOUNT										/* 휴면 여부 */   
+		FROM
+			USER													/* 유저 테이블 */
+		WHERE
+			BINARY USERID = #{ userId }								/* param 아이디 */
+	</select>
+	<update id="accessDt">
+		UPDATE USER SET
+			ACCESSDT = #{ accessDt }								/* param 로그인 시간/날짜 */
+		WHERE 
+			BINARY USERID = #{ userId }								/* param 아이디 */
+	</update>
+	<select id="users" resultType="com.korea.js.vo.User">
+		SELECT
+			USERID													/* 아이디 */     
+			, USERNAME												/* 이름 */      
+			, `GROUP`												/* 그룹 */      
+		FROM 
+			USER													/* 유저 테이블 */
+	</select>
+	<update id="changeGroup">
+		UPDATE USER SET
+			`GROUP` = #{ group }										/* param 그룹 */
+		WHERE
+			USERID = #{ userId }									/* param 아이디 */
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

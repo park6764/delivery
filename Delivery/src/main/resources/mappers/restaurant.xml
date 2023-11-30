@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.js.dao.RestaurantDao">
+	<insert id="addRes">
+		INSERT INTO RESTAURANT(
+			OWNERID															/* 오너 아이디 */
+			, RESTAURANTNAME												/* 레스토랑 이름 */
+			, RESTAURANTIMG													/* 레스토랑 이미지 */
+		) VALUES (
+			#{ ownerId }													/* param 오너 아이디 */    
+		    , #{ restaurantName }											/* param 레스토랑 이름 */   
+		    , #{ restaurantImg }											/* param 레스토랑 이미지 */   
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
