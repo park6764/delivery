@@ -4,7 +4,7 @@
 <html>
 <style>
 .foot {
-	min-height:300px; 
+	min-height:450px; 
 	background:#f2f2f2; 
 	display: flex; 
 	flex-direction: column; 
@@ -12,10 +12,10 @@
 }
 
 .comment {
-	font-size: 40px;
+	font-size: 45px;
     font-weight: bold;
     text-align: center;
-    padding-bottom: 125px;
+    padding-bottom: 260px;
 }
 
 .company {

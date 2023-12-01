@@ -22,6 +22,8 @@ public class User {
 	private String accessDt;                // 접속일
 	private boolean dormantAccount;         // 휴면 계정 여부
 
+	private String restaurantId;                // 레스토랑 아이디
+
 	// 휴면 계정 여부 get
 	public boolean getDormantAccount() {
 		return dormantAccount;

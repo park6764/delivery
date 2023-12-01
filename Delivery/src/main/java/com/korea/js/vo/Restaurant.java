@@ -12,7 +12,7 @@ public class Restaurant {
 	
 	private String restaurantName;            // 레스토랑 이름
 	private MultipartFile restaurantImg;      // 레스토랑 이미지
-//	private String restaurantImgName;      	  // 레스토랑 이미지 이름
+	private String restaurantImgName;      	  // 레스토랑 이미지 이름
 	
 	private Long dailySales;                  // 일일 매출
 	private String dailySalesDt;              // 일일 매출일

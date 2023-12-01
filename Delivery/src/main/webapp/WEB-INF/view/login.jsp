@@ -18,7 +18,7 @@
 				<td>
 					<br>
 					<span class=inputText>아이디</span><br>
-					<input type="text" class=inputId id=userId name=userId value="admin@naver.com" onkeypress="checkEnter(event)">
+					<input type="text" class=inputId id=userId name=userId value="owner@naver.com" onkeypress="checkEnter(event)">
 				</td>
 			</tr>
 			<tr>

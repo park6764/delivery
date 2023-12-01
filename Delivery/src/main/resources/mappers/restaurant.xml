@@ -18,6 +18,7 @@
 			RESTAURANTNAME                                                               /* 레스토랑 이름 */  
 			, OWNERID                                                                    /* 오너 아이디 */ 
 			, (SELECT USERNAME FROM USER WHERE USERID = OWNERID) AS ownerName        	 /* 오너 이름 */ 
+			, RESTAURANTIMG as RESTAURANTIMGNAME										 /* 레스토랑 이미지 */
 		FROM
 			RESTAURANT
 	</select>

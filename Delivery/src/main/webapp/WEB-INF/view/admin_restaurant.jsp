@@ -130,7 +130,7 @@
 		const restaurantName = document.getElementById('restaurantName').value;
 		const ownerId = document.getElementById('ownerId').value;
 		const restaurantImg = document.getElementById('restaurantImg').value;
-		console.log(restaurantName + ", " + ownerId + ", " + restaurantImg)
+		
 		if(restaurantName == "") {
 			alert("레스토랑 명을 입력해주세요.");
 			document.getElementById('restaurantName').focus();
