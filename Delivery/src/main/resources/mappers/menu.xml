@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.js.dao.MenuDao">
+	<insert id="addMenu">
+		INSERT INTO MENU(
+			RESTAURANTID                                            /* 레스토랑 아이디 */
+			, MENUNAME                                              /* 메뉴 이름 */
+			, MENUPRICE                                             /* 메뉴 가격 */
+			, MENUIMG                                               /* 메뉴 이미지 */
+			, MENUEXPLANATION                                       /* 메뉴 설명 */
+		) VALUES (
+		    #{ restaurantId }										/* param 레스토랑 아이디 */   
+		    , #{ menuName }											/* param 메뉴 이름 */     
+		    , #{ menuPrice }										/* param 메뉴 가격 */     
+		    , #{ menuImgName }										/* param 메뉴 이미지 이름 */ 
+		    , #{ menuExplanation }									/* param 메뉴 설명 */ 
+		)
+	</insert>
+	<select id="menus" resultType="com.korea.js.vo.Menu">
+		SELECT                                                        
+			MENUNAME                                                 /* 메뉴 이름 */    
+			, MENUPRICE                                              /* 메뉴 가격 */    
+			, MENUIMG AS MENUIMGNAME                                 /* 메뉴 이미지 */   
+			, MENUEXPLANATION                                        /* 메뉴 설명 */    
+		FROM
+			MENU													 /* 메뉴 테이블 */ 
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

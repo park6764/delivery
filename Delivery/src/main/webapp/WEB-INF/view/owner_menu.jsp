@@ -120,7 +120,7 @@
 						<p>
 							<span class=menuSapn>메뉴 설명</span><br>
 							<span class=menuInput>
-								<textarea style="resize: none;" rows="4" cols="37" id=menuExplanation name=menuExplanation></textarea>
+								<textarea style="resize: none;" rows="4" cols="37" id=menuExplanation name=menuExplanation maxlength="50" placeholder="50자 이내 작성"></textarea>
 							</span>
 						</p>
 						<p><br>
@@ -170,24 +170,25 @@
     }
 	
 	// form null 체크
+
 	function check() {
 		const menuName = document.getElementById('menuName').value;
-		const menuPirce = document.getElementById('menuPirce').value;
+		const menuPrice = document.getElementById('menuPrice').value; // 수정된 부분
 		const menuImg = document.getElementById('menuImg').value;
 		const menuExplanation = document.getElementById('menuExplanation').value;
-		
-		if(menuName == "") {
+
+		if (menuName == "") {
 			alert("메뉴의 이름을 입력해주세요.");
 			document.getElementById('menuName').focus();
 			return false;
-		} else if(menuPirce == "") {
+		} else if (menuPrice == "") { // 수정된 부분
 			alert("메뉴의 가격을 입력해주세요.");
-			document.getElementById('menuPirce').focus();
+			document.getElementById('menuPrice').focus();
 			return false;
-		} else if(menuImg == "") {
+		} else if (menuImg == "") {
 			alert("메뉴의 이미지를 선택해주세요.");
 			return false;
-		} else if(menuExplanation == "") {
+		} else if (menuExplanation == "") {
 			alert("메뉴의 설명을 입력해주세요.");
 			document.getElementById('menuExplanation').focus();
 			return false;

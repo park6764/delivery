@@ -31,7 +31,6 @@ public class TopController {
 	// 회원가입 페이지로 이동
 	@GetMapping("signup.do")
 	public String signup(Model model){
-		
 		// top에서 회원가입 URL을 띄우기 위한 값
 		model.addAttribute("signup", "signup");
 		return "/signup";
@@ -51,5 +50,18 @@ public class TopController {
 		List<Menu> result = menuService.menus();
 		model.addAttribute("menus", result);
 		return "/owner_menu";
+	}
+	
+	// 레스토랑 페이지로 이동
+	@GetMapping("/restaurant.do")
+	public String restaurant(Model model, Long restaurantId) { 
+		List<Restaurant> result = restaurantService.restaurant(restaurantId);
+		model.addAttribute("restaurant", result);
+		
+		if(!result.isEmpty()) {
+			model.addAttribute("restaurantName", result.get(0).getRestaurantName());
+			model.addAttribute("restaurantImgName", result.get(0).getRestaurantImgName());
+		}
+		return "/restaurant";
 	}
 }

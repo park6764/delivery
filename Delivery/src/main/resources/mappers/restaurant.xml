@@ -15,12 +15,32 @@
 	</insert>
 	<select id="restaurants" resultType="com.korea.js.vo.Restaurant">
 		SELECT
-			RESTAURANTNAME                                                               /* 레스토랑 이름 */  
+			RESTAURANTID																 /* 레스토랑 이름 */
+			, RESTAURANTNAME                                                             /* 레스토랑 이름 */  
 			, OWNERID                                                                    /* 오너 아이디 */ 
 			, (SELECT USERNAME FROM USER WHERE USERID = OWNERID) AS ownerName        	 /* 오너 이름 */ 
 			, RESTAURANTIMG as RESTAURANTIMGNAME										 /* 레스토랑 이미지 */
 		FROM
 			RESTAURANT
+	</select>
+	<select id="restaurant" resultType="com.korea.js.vo.Restaurant">
+		SELECT
+		    R.RESTAURANTID AS RESTAURANTID                                                /* 레스토랑 아이디 */ 
+		    , R.RESTAURANTNAME AS RESTAURANTNAME                                          /* 레스토랑 이름 */
+		    , M.MENUID AS MENUID  														  /* 메뉴 아이디 */
+		    , M.MENUNAME AS MENUNAME                                                      /* 메뉴 이름 */   
+		    , M.MENUPRICE AS MENUPRICE                                                    /* 메뉴 가격 */
+		    , M.MENUEXPLANATION AS MENUEXPLANATION										  /* 메뉴 설명 */
+		    , M.MENUIMG	AS MENUIMGNAME													  /* 메뉴 이미지 */
+		    , R.RESTAURANTIMG as RESTAURANTIMGNAME										  /* 레스토랑 이미지 */
+		FROM
+		    RESTAURANT R																  /* 레스토랑 테이블 */
+		JOIN
+		    MENU M 																		  /* 메뉴 테이블 */
+		ON 
+			R.RESTAURANTID = M.RESTAURANTID												  
+		WHERE
+		    M.RESTAURANTID = #{ restaurantId }											  /* param 레스토랑 아이디 */
 	</select>
 </mapper>
 

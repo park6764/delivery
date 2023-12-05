@@ -21,7 +21,7 @@
 			<c:forEach var="res" items="${ restaurants }">
 				<tr align="center">
 					<td>
-						<a href="/">
+						<a href="/restaurant.do?restaurantId=${ res.restaurantId }">
 							<img src="/img/${ res.restaurantImgName }" class=img>
 						</a>
 					</td>

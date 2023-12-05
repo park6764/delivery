@@ -35,7 +35,6 @@ public class RestaurantController {
 	@GetMapping("/admin_restaurant.do")
 	public String admin_restaurant(Model model) {
 		List<Restaurant> result = restaurantService.restaurants();
-		System.out.println(result.toString());
 		model.addAttribute("restaurants", result);
 		return "/admin_restaurant";
 	}

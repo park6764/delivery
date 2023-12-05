@@ -21,4 +21,10 @@ public interface RestaurantDao {
 	 * @return	오너 리스트
 	 */
 	public List<Restaurant> restaurants();
+	/**
+	 * 레스토랑 메뉴
+	 * @param restaurantId
+	 * @return 레스토랑 메뉴
+	 */
+	public List<Restaurant> restaurant(Long restaurantId);
 }

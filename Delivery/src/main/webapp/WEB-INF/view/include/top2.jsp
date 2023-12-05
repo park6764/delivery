@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="/css/boot/bootstrap.min.css">
 <link rel="stylesheet" href="/css/top.css">
 <script src="/js/jquery-3.6.0.js"></script>
-<head>
 <style>
 .dropbtn {
 	background-color: #4CAF50;
@@ -64,52 +63,59 @@
 	max-width: 100%;
 	height: auto;
 }
+.white-text-box {
+    text-align: center;
+    width: 40%;
+    height: 200px;
+    color: black;
+    padding: 5px;
+    margin: 0 auto; /* 수평 가운데 정렬을 위한 margin 설정 */
+    box-sizing: border-box; /* border와 padding이 width에 포함되도록 box-sizing 설정 */
+}
+
 </style>
+<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<div>
+		
+		<img class=ap src="/img/${ restaurantImgName }" width=100% height="500" style="padding-bottom: 10px;">
 		<table class=topTable>
 			<tr>
-				<td>
+				<td style="vertical-align: top;">
 					<p class=homeLeft style="font-weight: bold; font-size: 2.5em;">
 						<a href="/delivery.do">
-							우리는 <span class=logo>배</span>달 <br> &nbsp; 음식의 <span class=logo>민</span>족!
+							<span class=logo>배</span>달 <span class=logo>민</span>족!
 						</a>
 					</p>
 				</td>
-				<td align="right">
-					<span style="padding-right: 200px; padding-left: 30px;">
+				<td width="40%" style="border: 3px solid #ccc; text-align: center;">
+				    <div class="white-text-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				        <span style="font-weight: bold; font-size: 70px;">
+				            ${ restaurantName }
+				            <span style="font-weight: bold; font-size: 30px; display: block;">
+				                <img class="ap" src="/img/별.jpg" width="50px" height="50px"> 
+				                <span style="padding-top: 10px;">4.9(9,535)</span>
+				            </span>
+				        </span>
+				    </div>
+				</td>
+				<td align="right" style="vertical-align: top;">
+					<span>
 						<c:if test="${ userInfo eq null }">
 							<c:if test="${ signup ne 'signup' }">
+								<span style="padding-left: 25px; padding-right: 35px;"></span>
 								<a href="/signup.do">회원가입</a>
 							</c:if>
 							<span style="padding-left: 25px;">
 								<button class="btn btn-outline-danger" onclick="login_()">로그인</button>
 							</span>
+							<span style="padding-left: 25px; padding-right: 100px;"></span>
 						</c:if>
 					</span>
 					<c:if test="${ userInfo ne null }">
-						<c:if test="${ userInfo.group eq '관리자' }">
-							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/admin_group.do">groups</a>
-							</span>
-							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/admin_restaurant.do">restaurants</a>
-							</span>
-						</c:if>
-						<c:if test="${ userInfo.group eq '오너' }">
-							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/">order</a>
-							</span>
-							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/">operating profit</a>
-							</span>
-							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/owner_menu.do">menu</a>
-							</span>
-						</c:if>
 						<img class=ap src="/img/도토리.png" width=30 height="30" style="padding-bottom: 10px; padding-right: 10px;">
 						<fmt:formatNumber value="${ userInfo.acornCoin }" pattern="#,###" />
 						<span style="padding-right: 15px;"></span>
@@ -121,6 +127,17 @@
 					    		<a href="#">도토리 충전</a>
 					    		<a href="#">인기 메뉴</a>
 					    		<a href="/logout.do">로그아웃</a>
+								<c:if test="${ userInfo.group eq '관리자' }">
+									<a href="/admin_group.do">groups</a>
+									<a href="/admin_restaurant.do">restaurants</a>
+								</c:if>
+								<c:if test="${ userInfo.group eq '오너' }">
+									<a href="/">order</a>
+									<a href="/">operating profit</a>
+									<a href="/owner_menu.do">menu</a>
+								</c:if>
+					    		
+
 					  		</div>
 						</div>  
 					</c:if>
@@ -140,15 +157,5 @@
 	    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
 	    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
 	};
-	
-	// 세션체크
-	$(document).ready(function() {
-		var getSession = "${ userInfo }";
-		
-		if(getSession == null) {
-			var link = '/login.do';
-			window.location.replace(link);
-		}
-	});
 </script>
 </html>

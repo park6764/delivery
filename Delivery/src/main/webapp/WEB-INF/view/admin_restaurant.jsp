@@ -110,7 +110,7 @@
 	  			</div>
 			</div>
 		</div>
-	<section style="min-height: 40vh;"></section>
+	<section style="min-height: 50vh;"></section>
 <script type="text/javascript">
 	
 	const modalOpenButton = document.getElementById('modalOpenButton');

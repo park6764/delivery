@@ -69,4 +69,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return result;
 	}
 
+	@Override
+	public List<Restaurant> restaurant(Long restaurantId) {
+		List<Restaurant> result = restaurantDao.restaurant(restaurantId);
+		return result;
+	}
+
 }

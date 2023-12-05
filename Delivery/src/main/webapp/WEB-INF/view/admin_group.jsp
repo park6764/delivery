@@ -58,6 +58,7 @@ select:hover {
 						<td>
 							<span style="padding: 20px 20px; font-weight: bold; font-size: 20px;">그룹</span>
 							<select>
+								<option>전체</option>
 								<option>회원</option>
 								<option>오너</option>
 								<option>관리자</option>
