@@ -65,8 +65,8 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public List<Menu> menus() {
-		List<Menu> result = menuDao.menus();
+	public List<Menu> menus(Long restaurantId) {
+		List<Menu> result = menuDao.menus(restaurantId);
 		return result;
 	}
 

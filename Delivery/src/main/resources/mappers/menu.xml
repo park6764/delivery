@@ -24,7 +24,9 @@
 			, MENUIMG AS MENUIMGNAME                                 /* 메뉴 이미지 */   
 			, MENUEXPLANATION                                        /* 메뉴 설명 */    
 		FROM
-			MENU													 /* 메뉴 테이블 */ 
+			MENU													 /* 메뉴 테이블 */
+		WHERE
+			RESTAURANTID = #{ restaurantId }						 /* param 레스토랑 아이디 */
 	</select>
 </mapper>
 

@@ -16,8 +16,8 @@ public class MenuController {
 	private MenuService menuService;
 	
 	@PostMapping("/addMenu.do")
-	public String addMenu(@ModelAttribute Menu menu, HttpServletRequest request) {
+	public String addMenu(@ModelAttribute Menu menu, HttpServletRequest request, Long restaurantId) {
 		menuService.addMenu(menu, request);
-		return "redirect:/owner_menu.do";
+		return "redirect:/owner_menu.do?restaurantId=" + restaurantId;
 	}
 }

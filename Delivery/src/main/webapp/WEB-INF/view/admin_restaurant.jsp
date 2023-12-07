@@ -7,15 +7,12 @@
 	height: 60px;
 	background-color: #d9534f;
 }
-
-
 .inp {
 	margin: 12px;
 }
 #modalOpenButton, #modalCloseButton {
   cursor: pointer;
 }
-
 #modalContainer {
   width: 100%;
   height: 100%;
@@ -27,7 +24,6 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
 }
-
 #modalContent {
   position: absolute;
   background-color: #ffffff;
@@ -35,16 +31,13 @@
   height: 400px;
   text-align: center;
 }
-
 #modalContainer.hidden {
   display: none;
 }
-
 /*  */
 .Th{
 	padding-right: 60px;
 }
-
 </style>
 <head>
 <meta charset="UTF-8">
@@ -113,14 +106,17 @@
 	<section style="min-height: 50vh;"></section>
 <script type="text/javascript">
 	
+	// modalOpenButton
 	const modalOpenButton = document.getElementById('modalOpenButton');
+	// modalCloseButton
 	const modalCloseButton = document.getElementById('modalCloseButton');
+	// modal
 	const modal = document.getElementById('modalContainer');
-	
+	// 모달 출력
 	modalOpenButton.addEventListener('click', () => {
 		modal.classList.remove('hidden');
 	});
-	
+	// 모달 숨김
 	modalCloseButton.addEventListener('click', () => {
 		modal.classList.add('hidden');
 	});

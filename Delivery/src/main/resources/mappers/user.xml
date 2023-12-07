@@ -53,7 +53,7 @@
 			, PROFILEIMGNAME										/* 파일이름 */    
 			, PROFILEIMG											/* 실제파일 */    
 			, DORMANTACCOUNT										/* 휴면 여부 */   
-			, (SELECT RESTAURANTID FROM RESTAURANT WHERE OWNERID = USERID) AS RESTAURANTID
+			, IFNULL((SELECT RESTAURANTID FROM RESTAURANT WHERE OWNERID = USER.USERID), -1) AS RESTAURANTID			/* 레스토랑 아이디 */
 		FROM
 			USER													/* 유저 테이블 */
 		WHERE

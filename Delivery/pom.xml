@@ -15,7 +15,7 @@
 	<name>Delivery</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,32 +66,44 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!--
-      https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!--
-		https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+		<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+			<!--<dependency>
+				<groupId>jakarta.servlet.jsp.jstl</groupId>
+				<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
+			<!--<dependency>
+				<groupId>org.glassfish.web</groupId>
+				<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			</dependency>-->
+		<!-- 기존 사용하던게 갑자기 에러나서 주석처리.. 근데 똑같은거 사용하는거 같음.. -->
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 		</dependency>
-		<!--https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
 		<dependency>
 			<groupId>org.glassfish.web</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
 		</dependency>
-		<!-- 프로퍼티 암호화 -->
-		<dependency>
-			<groupId>com.github.ulisesbocchio</groupId>
-			<artifactId>jasypt-spring-boot-starter</artifactId>
-			<version>3.0.3</version>
-		</dependency>
+		<!-- 버전 추가
+			<dependency>
+   				<groupId>jakarta.servlet.jsp.jstl</groupId>
+    			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+    			<version>1.2.6</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.glassfish.web</groupId>
+			    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			    <version>1.2.6</version>
+			</dependency>
+		-->
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -105,12 +117,6 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-			<!-- 프로퍼티 암호화 -->
-			<plugin>
-				<groupId>com.github.ulisesbocchio</groupId>
-				<artifactId>jasypt-maven-plugin</artifactId>
-				<version>3.0.3</version>
 			</plugin>
 		</plugins>
 	</build>

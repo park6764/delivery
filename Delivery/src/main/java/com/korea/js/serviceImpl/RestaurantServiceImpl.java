@@ -45,9 +45,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 		
 		// 중복 파일명 처리
 		File f = new File(path + originalFilename);
-		if(f.exists()) {
-			return 0;
-		}
+//		if(f.exists()) {
+//			return 0;
+//		}
 		
 		try {
 			// 파일 저장

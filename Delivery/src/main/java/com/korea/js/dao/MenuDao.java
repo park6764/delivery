@@ -16,7 +16,8 @@ public interface MenuDao {
 	public int addMenu(Menu menu);
 	/**
 	 * 메뉴 리스트
+	 * @param restaurantId 레스토랑 아이디
 	 * @return 메뉴 리스트
 	 */
-	public List<Menu> menus();
+	public List<Menu> menus(Long restaurantId);
 }

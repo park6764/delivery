@@ -18,7 +18,7 @@
 				<td>
 					<br>
 					<span class=inputText>아이디</span><br>
-					<input type="text" class=inputId id=userId name=userId value="user@naver.com" onkeypress="checkEnter(event)">
+					<input type="text" class=inputId id=userId name=userId value="domino@naver.com" onkeypress="checkEnter(event)">
 				</td>
 			</tr>
 			<tr>
@@ -46,7 +46,9 @@
 <script type="text/javascript">
 	jQuery.ajaxSetup({cache:false})
 	
+	// 로그인
 	function login() {
+		// root
 		var path = getContextPath();
 		var userId = document.getElementById('userId').value;
 		var pw = document.getElementById('pw').value;
@@ -66,8 +68,7 @@
 		var dataStr = {};
 		dataStr.userId = userId
 		dataStr.pw = pw
-		/* console.log(dataStr);
-		return; */
+		
 		$.ajax({
 			type : "POST"
 			, url : path + "/login.do"

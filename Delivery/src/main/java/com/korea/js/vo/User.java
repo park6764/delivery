@@ -16,13 +16,13 @@ public class User {
 	private Long acornCoin;                 // 도토리(화폐)
 	
 	private String acornPw;                 // 2차 비밀번호
-//	private String profileImgName;          // 사진 이름
+	private String profileImgName;          // 사진 이름
 	
-	private MultipartFile profileImg;              // 사진
+	private MultipartFile profileImg;       // 사진
 	private String accessDt;                // 접속일
 	private boolean dormantAccount;         // 휴면 계정 여부
 
-	private String restaurantId;                // 레스토랑 아이디
+	private String restaurantId;            // 레스토랑 아이디
 
 	// 휴면 계정 여부 get
 	public boolean getDormantAccount() {

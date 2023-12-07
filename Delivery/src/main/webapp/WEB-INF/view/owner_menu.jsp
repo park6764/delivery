@@ -170,7 +170,6 @@
     }
 	
 	// form null 체크
-
 	function check() {
 		const menuName = document.getElementById('menuName').value;
 		const menuPrice = document.getElementById('menuPrice').value; // 수정된 부분

@@ -46,8 +46,8 @@ public class TopController {
 
 	// 마이페이지로 이동
 	@GetMapping("/owner_menu.do")
-	public String owner_menu(Model model) { 
-		List<Menu> result = menuService.menus();
+	public String owner_menu(Model model, Long restaurantId) { 
+		List<Menu> result = menuService.menus(restaurantId);
 		model.addAttribute("menus", result);
 		return "/owner_menu";
 	}

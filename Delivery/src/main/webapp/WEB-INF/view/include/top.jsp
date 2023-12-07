@@ -107,7 +107,7 @@
 								<a href="/">operating profit</a>
 							</span>
 							<span style="padding-right: 25px; font-weight: bold;">
-								<a href="/owner_menu.do">menu</a>
+								<a href="/owner_menu.do?restaurantId=${ userInfo.restaurantId }">menu</a>
 							</span>
 						</c:if>
 						<img class=ap src="/img/도토리.png" width=30 height="30" style="padding-bottom: 10px; padding-right: 10px;">

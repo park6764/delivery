@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="/css/boot/bootstrap.min.css">
@@ -93,7 +92,7 @@
 				</td>
 				<td width="40%" style="border: 3px solid #ccc; text-align: center;">
 				    <div class="white-text-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				        <span style="font-weight: bold; font-size: 70px;">
+				        <span style="font-weight: bold; font-size: 60px; width: 600px;">
 				            ${ restaurantName }
 				            <span style="font-weight: bold; font-size: 30px; display: block;">
 				                <img class="ap" src="/img/별.jpg" width="50px" height="50px"> 

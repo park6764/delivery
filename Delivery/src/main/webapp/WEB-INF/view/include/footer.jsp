@@ -34,7 +34,11 @@
 <body>
 	<section class=foot>
 		<p class=comment>오늘도 당신에게 행복을 배달 중~</p>
-		<footer><span class=company>에코아이티</span><span class=companyAddr>서울시특별시 강남구 강남대로146길 25(에코스페이스) 4층 TEL 02-6342-8021 FAX 02-864-8021</span></footer>
+		<footer>
+			<span class=company>에코아이티</span>
+			<span class=companyAddr>서울시특별시 강남구 강남대로146길 25(에코스페이스) 4층 TEL 02-6342-8021 FAX 02-864-8021</span>
+			<p></p>
+		</footer>
 	</section>
 </body>
 </html>

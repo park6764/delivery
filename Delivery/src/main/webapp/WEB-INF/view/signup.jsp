@@ -105,6 +105,7 @@
 	
 	var idChecked = false;
 	
+	// 아이디를 입력할 때마다 중복체크 false :: 중복체크를 했을 때만 결과에 따라 true return;
 	$(document).ready(function() {
 	    $('#userId').on('input', function() {
 	        idChecked = false;
@@ -133,7 +134,7 @@
             	  if("T" == data) {
             		  alert("사용가능한 아이디입니다.");
             		  idChecked = true;
-            	  }else{
+            	  } else {
             		  alert("중복된 아이디입니다.");
             		  idChecked = false;
             	  }
@@ -208,78 +209,6 @@
 		
 		document.getElementById("addr").value = addr;
 	}
-	
-	
-	/*
-	// 회원가입
-	function signup() {
-		var path = getContextPath();
-		var userInfo = userinfo();
-		
-		var userId = document.getElementById('userId').value;
-		
-	    var pw = document.getElementById('pw').value;
-	    var pwCk = document.getElementById('pwCk').value;
-	    
-	    var userName = document.getElementById('userName').value;
-	    var nick = document.getElementById('nick').value;
-	    var tel = document.getElementById('tel').value;
-	    var group = document.getElementById('group').value;
-	    var sample6_postcode = document.getElementById('sample6_postcode').value;
-	    var sample6_address = document.getElementById('sample6_address').value;
-	    var profilePicture = document.getElementById('profilePicture').value;
-	    
-	    var acornPw = document.getElementById('acornPw').value;
-	    var acornPwCk = document.getElementById('acornPwCk').value;
-		
-		if (userId == "") {
-	        alert("아이디를 입력해주세요.");
-	        document.getElementById('userId').focus();
-	        return;
-	    } else if(!idChecked) {
-	    	alert("아이디 중복확인을 완료해주세요.");
-	    	return;
-	    } else if (userName == "") {
-	        alert("이름을 입력해주세요.");
-	        document.getElementById('userName').focus();
-	        return;
-	    } else if (nick == "") {
-	        alert("닉네임을 입력해주세요.");
-	        document.getElementById('nick').focus();
-	        return;
-	    } else if (tel == "") {
-	        alert("전화번호를 입력해주세요.");
-	        document.getElementById('tel').focus();
-	        return;
-	    } else if (sample6_postcode == "") {
-	        alert("주소를 입력해주세요.");
-	        document.getElementById('sample6_postcode').focus();
-	        return;
-	    } else if(pw != pwCk) {
-	    	alert("비밀번호를 확인해주세요.")
-	        document.getElementById('pw').focus();
-	    	return;
-	    } else if(acornPw != acornPwCk) {
-	    	alert("2차 비밀번호를 확인해주세요.")
-	        document.getElementById('acornPw').focus();
-	    	return;
-	    }
-
-		$.ajax({
-			type : "POST"
-			, url : path + "/signup.do"
-			, contentType : "application/json"
-			, data : JSON.stringify(userInfo)
-			, success : function (data) {
-				if ("T" != data) {
-					alert("회원가입을 실패하였습니다. 다시 확인해주세요.");
-				} else {
-					var link = '/login.do';
-					window.location.replace(link);
-				}
-			}
-		})
-	} */
 
 	function sample6_execDaumPostcode() {
 	    new daum.Postcode({
