@@ -13,7 +13,6 @@
 			, `GROUP`												/* 그룹 */
 			, ACORNCOIN												/* 도토리 */
 			, ACORNPW												/* 2차 비밀번호 */
-			<!-- , PROFILEIMGNAME										/* 파일이름 */ -->
 			, PROFILEIMG											/* 실제파일 */
 			, DORMANTACCOUNT										/* 휴면 여부 */
 		) VALUES (
@@ -26,8 +25,7 @@
 		    , #{ group }											/* param 그룹 */     
 		    , #{ acornCoin }										/* param 도토리 */    
 		    , #{ acornPw }											/* param 2차 비밀번호 */
-		    <!-- , #{ profileImgName }									/* param 파일이름 */  -->  
-		    , #{ profileImg }										/* param 실제파일 */   
+		    , #{ profileImgName }									/* param 실제파일 */   
 		    , #{ dormantAccount }									/* param 휴면 여부 */  
 		)
 	</insert>

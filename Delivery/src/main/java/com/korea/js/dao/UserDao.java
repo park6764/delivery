@@ -10,33 +10,10 @@ import com.korea.js.vo.User;
 public interface UserDao {
 	/**
 	 * 회원가입
-	 * @param userId              유저 아이디
-	 * @param pw                  비밀번호
-	 * @param userName            이름
-	 * @param nick                별명
-	 * @param tel                 전화번호
-	 * @param addr                주소
-	 * @param group               그룹
-	 * @param acornCoin           도토리(화폐)
-	 * @param acornPw             2차 비밀번호
-	 * @param profileImgName      파일이름
-	 * @param profileImg          파일
-	 * @param dormantAccount      접속일
-	 * @return 회원가입에 성공하면 1, 실패하면 0;
+	 * @param user 회원정보
+	 * @return 회원 추가 성공 시 1, 실패 시 0;
 	 */
-	public int signup(
-		String userId
-		, String pw
-		, String userName
-		, String nick
-		, String tel
-		, String addr
-		, String group
-		, Long acornCoin
-		, String acornPw
-		, String profileImg
-		, boolean dormantAccount
-	);	
+	public int signup(User user);	
 	/**
 	 * 아이디 중복 체크
 	 * @param userId 유저 아이디

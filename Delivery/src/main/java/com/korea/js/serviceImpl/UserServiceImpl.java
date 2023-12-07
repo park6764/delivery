@@ -26,16 +26,6 @@ public class UserServiceImpl implements UserService {
 	// 회원가입
 	@Override
 	public int signup(User user, HttpServletRequest request) {
-		String userId = user.getUserId();                                               
-		String pw = user.getPw();                                                      
-		String userName = user.getUserName();                                              
-		String nick = user.getUserName();                                                       
-		String tel = user.getTel();                                                        
-		String addr = user.getAddr();
-		String group = "회원";                               // 회원가입 하면 기본 그룹을 "회원"으로 설정       
-		Long acornCoin = Long.valueOf(0);                   // 기본 도토리 0으로 설정                 
-		String acornPw = user.getAcornPw();                                  
-		boolean dormantAccount = false;                                                      
 		
 		// 세션의 서블릿 컨텍스트를 기반으로 "/img/" 디렉토리의 실제 경로를 가져옴
 		String path = request.getSession().getServletContext().getRealPath("/img/");
@@ -66,22 +56,24 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 		
-		String password = BCrypt.hashpw(pw, BCrypt.gensalt());			// 비밀번호 암호화
-		String password2 = BCrypt.hashpw(acornPw, BCrypt.gensalt());	// 2차 비밀번호 암호화
+		// 비밀번호
+		String pw = user.getPw();                                                      
+		// 2차 비밀번호
+		String acornPw = user.getAcornPw();
+		// 비밀번호 암호화
+		String password = BCrypt.hashpw(pw, BCrypt.gensalt());		
+		// 2차 비밀번호 암호화
+		String password2 = BCrypt.hashpw(acornPw, BCrypt.gensalt());	
 		
-		int result = userDao.signup(
-								userId
-								, password
-								, userName
-								, nick
-								, tel
-								, addr
-								, group
-								, acornCoin
-								, password2
-								, originalFilename
-								, dormantAccount
-							);
+		// 값 세팅
+		user.setGroup("회원");
+		user.setAcornCoin(Long.valueOf(0));
+		user.setDormantAccount(false);
+		user.setProfileImgName(originalFilename);
+		user.setPw(password);
+		user.setAcornPw(password2);
+		
+		int result = userDao.signup(user);
 
 		return result;
 	}
