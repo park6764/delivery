@@ -25,11 +25,11 @@
         /* 이미지를 담는 부모 컨테이너 스타일 */
         .img-div {
             white-space: nowrap; /* 자식 요소들이 줄 바꿈되지 않고 한 줄에 배치되도록 설정 */
-            overflow: hidden; /* 넘치는 자식 요소들은 보이지 않도록 설정 */
             animation: moveBackground linear infinite 20s; /* 30초 동안 애니메이션 반복 */
             justify-content: flex-start; /* 자식 요소들을 왼쪽에서 오른쪽으로 정렬 */
             padding-top: 150px; /* 상단 여백 */
             padding-bottom: 20px; /* 하단 여백 */
+            width: 1230px;
         }
 
         /* 각 이미지의 스타일 */
@@ -46,11 +46,9 @@
 <body>
     <div class="img-div" id="imgDiv">
         <c:forEach var="res" items="${restaurants}">
-            <span class="img-width">
+            <span style="padding-left: 100px;">
                 <a href="/restaurant.do?restaurantId=${res.restaurantId}">
-                    <span style="padding-right: 40px;"></span>
                     <img src="/img/${res.restaurantImgName}" class="img" onmouseover="stopAnimation()" onmouseout="startAnimation()">
-                    <span style="padding-right: 40px;"></span>
                 </a>
             </span>
         </c:forEach>
@@ -68,7 +66,10 @@
             animationPaused = false;
             document.querySelector('#imgDiv').style.animationPlayState = 'running';
         }
-    </script>
+        
+        document.querySelector('#imgDiv span:first-child').style.paddingLeft = '210px';
+			
+	</script>
 </body>
 <%@ include file="./include/footer.jsp" %>
 </html>
