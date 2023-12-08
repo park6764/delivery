@@ -121,25 +121,52 @@
 		modal.classList.add('hidden');
 	});
 	
-	// form null 체크
+	// 폼 유효성 검사
 	function check() {
-		const restaurantName = document.getElementById('restaurantName').value;
-		const ownerId = document.getElementById('ownerId').value;
-		const restaurantImg = document.getElementById('restaurantImg').value;
-		
-		if(restaurantName == "") {
-			alert("레스토랑 명을 입력해주세요.");
-			document.getElementById('restaurantName').focus();
-			return false;
-		} else if(ownerId == "") {
-			alert("오너 아이디를 입력해주세요.");
-			document.getElementById('ownerId').focus();
-			return false;
-		} else if(restaurantImg == "") {
-			alert("레스토랑 이미지를 선택해주세요.");
-			return false;
-		}
+	    const restaurantName = document.getElementById('restaurantName').value;
+	    const ownerId = document.getElementById('ownerId').value;
+	    const restaurantImg = document.getElementById('restaurantImg').value;
+
+	    if (restaurantName == "") {
+	        alert("레스토랑 명을 입력해주세요.");
+	        document.getElementById('restaurantName').focus();
+	        return false;
+	    } else if (ownerId == "") {
+	        alert("오너 아이디를 입력해주세요.");
+	        document.getElementById('ownerId').focus();
+	        return false;
+	    } else if (restaurantImg == "") {
+	        alert("레스토랑 이미지를 선택해주세요.");
+	        return false;
+	    }
+
+	    var path = getContextPath();
+
+	    var info = {};
+	    info.userId = ownerId;
+
+	    // 데이터베이스에 존재하는 아이디 인지 검증
+	    var isIdValid = false;
+
+	    $.ajax({
+	        type: "POST"
+	        , url: path + "/idCk.do"
+	        , contentType: "application/json"
+	        , data: JSON.stringify(info)
+	        , async: false // 동기 설정
+	        , success: function (data) {
+	            if (data == "T") {
+	                alert("존재하지 않는 오너 아이디입니다.");
+	            } else {
+	                isIdValid = true;
+	            }
+	        }
+	    });
+
+	    return isIdValid;
 	}
+
+
 	
 	//체크박스 선택 여부
 	function checkB() {
