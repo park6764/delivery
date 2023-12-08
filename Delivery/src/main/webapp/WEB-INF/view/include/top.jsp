@@ -111,14 +111,15 @@
 							</span>
 						</c:if>
 						<img class=ap src="/img/도토리.png" width=30 height="30" style="padding-bottom: 10px; padding-right: 10px;">
-						<fmt:formatNumber value="${ userInfo.acornCoin }" pattern="#,###" />
+						<fmt:formatNumber value="${ acorn }" pattern="#,###" />
+<%-- 						<fmt:formatNumber value="${ userInfo.acornCoin }" pattern="#,###" /> --%>
 						<span style="padding-right: 15px;"></span>
 						<span style="font-weight: bold; font-size: 18px;">${ userInfo.nick }</span>&nbsp;님 환영합니다.
 						<div class="dropdown image-container" style="padding-right: 50px; padding-left: 30px;">
 							<img class=ap src="/img/설정탭.png" width=40 height="55" style="padding-bottom: 15px;">
 							<div class="dropdown-content">
 								<a href="/myPage.do">마이페이지</a>
-					    		<a href="#">도토리 충전</a>
+					    		<a href="/acornCharging.do">도토리 충전</a>
 					    		<a href="#">인기 메뉴</a>
 					    		<a href="/logout.do">로그아웃</a>
 					  		</div>
@@ -130,6 +131,7 @@
 	</div>
 </body>
 <script type="text/javascript">
+
 	function login_() {
 		var link = '/login.do';
 		window.location.replace(link);

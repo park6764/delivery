@@ -38,4 +38,16 @@ public interface UserService {
 	 * @return 변경을 성공하면 1, 실패하면 0;
 	 */
 	public int changeGroup(List<Map<String, String>> map);
+	/**
+	 * 보유 도토리 가져오기
+	 * @param userId 유저 아이디
+	 * @return 도토리
+	 */
+	public Long getAcorn(String userId);
+	/**
+	 * 2차 비밀번호 가져오기
+	 * @param userId 유저 아이디
+	 * @return 2차 비밀번호
+	 */
+	public String getAcornPw(Map<String, String> map);
 }

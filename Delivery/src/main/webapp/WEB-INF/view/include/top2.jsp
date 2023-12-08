@@ -123,7 +123,7 @@
 							<img class=ap src="/img/설정탭.png" width=40 height="55" style="padding-bottom: 15px;">
 							<div class="dropdown-content">
 								<a href="/myPage.do">마이페이지</a>
-					    		<a href="#">도토리 충전</a>
+					    		<a href="acornCharging.do">도토리 충전</a>
 					    		<a href="#">인기 메뉴</a>
 					    		<a href="/logout.do">로그아웃</a>
 								<c:if test="${ userInfo.group eq '관리자' }">

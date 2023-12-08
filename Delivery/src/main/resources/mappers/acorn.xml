@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.js.dao.AcornDao">
+	<insert id="acornCharging">
+		INSERT INTO ACORN(
+			FROMUSERID                                           	/* 누가 */
+			, INPUTDT                                              	/* 충전 날짜 */
+			, INPUTACORN                                            /* 충전 도토리 */
+		) VALUES (
+		    #{ fromUserId }											/* param 누가 */   
+		    , #{ inputDt }											/* param 충전 날짜 */     
+		    , #{ inputAcorn }										/* param 충전 도토리 */     
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

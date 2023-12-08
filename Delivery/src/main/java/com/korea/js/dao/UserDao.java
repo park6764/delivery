@@ -45,4 +45,23 @@ public interface UserDao {
 	 * @return 변경을 성공하면 1, 실패하면 0;
 	 */
 	public int changeGroup(String userId, String group);
+	/**
+	 * 도토리 충전
+	 * @param inputAcorn 충전 도토리
+	 * @param fromUserId 충전할 아이디
+	 * @return 업데이트 성공 시 1, 실패 시 0;
+	 */
+	public int acornCharging(String fromUserId, Long inputAcorn);
+	/**
+	 * 보유 도토리 가져오기
+	 * @param userId 유저 아이디
+	 * @return 도토리
+	 */
+	public Long getAcorn(String userId);
+	/**
+	 * 2차 비밀번호 가져오기
+	 * @param userId 유저 아이디
+	 * @return 2차 비밀번호
+	 */
+	public String getAcornPw(String userId);
 }

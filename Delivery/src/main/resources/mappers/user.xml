@@ -47,7 +47,6 @@
 			, ADDR													/* 주소 */      
 			, `GROUP`												/* 그룹 */      
 			, ACORNCOIN												/* 도토리 */     
-			, ACORNPW												/* 2차 비밀번호 */ 
 			, PROFILEIMGNAME										/* 파일이름 */    
 			, PROFILEIMG											/* 실제파일 */    
 			, DORMANTACCOUNT										/* 휴면 여부 */   
@@ -73,10 +72,32 @@
 	</select>
 	<update id="changeGroup">
 		UPDATE USER SET
-			`GROUP` = #{ group }										/* param 그룹 */
+			`GROUP` = #{ group }									/* param 그룹 */
 		WHERE
 			USERID = #{ userId }									/* param 아이디 */
 	</update>
+	<update id="acornCharging">
+		UPDATE USER SET
+			ACORNCOIN = #{ inputAcorn }								/* param 충전 도토리 */
+		WHERE
+			USERID = #{ fromUserId }								/* param 아이디 */
+	</update>
+	<select id="getAcorn" resultType="Long">
+		SELECT                                                   
+			ACORNCOIN                                               /* 도토리 */      
+		FROM                                                                                
+			USER                                                    /* 유저 테이블 */
+		WHERE
+			USERID = #{ userId }									/* param 아이디 */        
+	</select>
+	<select id="getAcornPw" resultType="String">
+		SELECT 
+			ACORNPW                                                 /* 2차 비밀번호 */           
+		FROM                                                                            
+			USER                                                    /* 유저 테이블 */        
+		WHERE                                                                           
+			USERID = #{ userId }                                    /* param 유저 아이디 */     
+	</select>                                                                               
 </mapper>
 
 

@@ -56,10 +56,20 @@ public class UserController {
 		
 		if(result != null) {
 			session.setAttribute("userInfo", result);
+			session.setAttribute("acorn", result.getAcornCoin());
 			return "T";
 		}
 		
 		return "F";
+	}
+	
+	// 세션 업데이트
+	@PostMapping("/updateAcorn.do")
+	@ResponseBody
+	public String updateAcorn(@RequestBody Map<String, String> map, HttpSession session) {
+	    var coin = userService.getAcorn(map.get("userId"));
+	    session.setAttribute("acorn", coin);
+	    return "T";
 	}
 	
 	// 로그아웃 :: 세션 종료 후 메인 페이지로 이동
@@ -95,4 +105,22 @@ public class UserController {
 		
 		return "F";
 	}
+	
+	// 2차 비밀번호 확인
+	@PostMapping("/acornPwCk.do")
+	@ResponseBody
+	public String acornPwCk(@RequestBody Map<String, String> map) {
+		String result = userService.getAcornPw(map);
+		
+		if(result.equals("T")) {
+			return "T";
+		}
+		
+		return "F";
+	}
 }
+
+
+
+
+

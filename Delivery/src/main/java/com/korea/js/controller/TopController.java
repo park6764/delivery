@@ -1,14 +1,21 @@
 package com.korea.js.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.korea.js.service.MenuService;
 import com.korea.js.service.RestaurantService;
+import com.korea.js.service.UserService;
 import com.korea.js.vo.Menu;
 import com.korea.js.vo.Restaurant;
 
@@ -20,11 +27,27 @@ public class TopController {
 	@Autowired
 	private RestaurantService restaurantService;
 	
+	@Autowired
+	private UserService userService;
+	
 	// 메인 페이지로 이동
 	@GetMapping("/delivery.do")
 	public String delivery(Model model) { 
+	    List<Restaurant> result = restaurantService.restaurants();
+	    model.addAttribute("restaurants", result);
+	    return "/delivery";
+	}
+
+	// 메인 페이지로 이동
+	@GetMapping("/delivery_.do")
+	public String delivery(Model model, Optional<String> userId) { 
 		List<Restaurant> result = restaurantService.restaurants();
 		model.addAttribute("restaurants", result);
+		if(userId.isPresent())	{
+			String userId_ = userId.get();
+			var coin = userService.getAcorn(userId_);
+			model.addAttribute("acorn", coin);
+		}
 		return "/delivery";
 	}
 	
@@ -64,4 +87,22 @@ public class TopController {
 		}
 		return "/restaurant";
 	}
+	
+	// 도토리 충전 페이지로 이동
+	@GetMapping("/acornCharging.do")
+	public String acornCharging() {
+		return "acorn_charging";
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

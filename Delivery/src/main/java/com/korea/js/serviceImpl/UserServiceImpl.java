@@ -146,4 +146,27 @@ public class UserServiceImpl implements UserService {
 		
 		return result;
 	}
+
+	// 유저 도토리 가져오기
+	@Override
+	public Long getAcorn(String userId) {
+		Long result = userDao.getAcorn(userId);
+		return result;
+	}
+
+	@Override
+	public String getAcornPw(Map<String, String> map) {
+		String userId = map.get("userId");
+		String acornPw = map.get("acornPw");
+		
+		String result = userDao.getAcornPw(userId);
+		
+		boolean checkpw = BCrypt.checkpw(acornPw, result);
+		
+		if(checkpw) {
+			return "T";
+		}
+		
+		return "F";
+	}
 }

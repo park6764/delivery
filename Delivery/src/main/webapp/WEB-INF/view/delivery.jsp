@@ -56,7 +56,7 @@
     <section style="min-height: 25vh;"></section>
     <script type="text/javascript">
         var animationPaused = false;
-
+        
         function stopAnimation() {
             animationPaused = true;
             document.querySelector('#imgDiv').style.animationPlayState = 'paused';

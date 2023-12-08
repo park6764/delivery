@@ -3,7 +3,16 @@
 <!DOCTYPE html>
 <html>
 <style>
-  /* 모달 스타일 */
+  .menuSapn{
+  	font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-right: 225px;
+  }
+  .menuInput{
+  	text-align: center;
+  }
+   /* 모달 스타일 */
   .modal {
     display: none;
     position: fixed;
@@ -39,16 +48,6 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  .menuSapn{
-  	font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    padding-right: 225px;
-  }
-  .menuInput{
-  	text-align: center;
   }
 </style>
 <head>
