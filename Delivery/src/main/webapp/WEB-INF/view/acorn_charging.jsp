@@ -215,6 +215,13 @@
 
 		// 도토리 추가
 		function acornCharginn() {
+			var acornPw = document.getElementById('acornPw').value;
+			if(acornPw == "") {
+				alert("2차 비밀번호를 입력해주세요.");
+				document.getElementById('acornPw').focus();
+				return;
+			}
+			
 			if(!isChecked) {
 				alert("충전할 도토리를 선택해주세요.");
 				var modal = document.getElementById('myModal');
@@ -228,7 +235,7 @@
 			var fromUserId = "${ userInfo.userId }";
 			var acornInfo = {};
 			acornInfo.userId = fromUserId;
-			acornInfo.acornPw = document.getElementById('acornPw').value;
+			acornInfo.acornPw = acornPw;
 			
 			$.ajax({
 				type : "POST",
