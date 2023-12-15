@@ -3,6 +3,12 @@
 <%@ include file="./include/top.jsp" %>
 <!DOCTYPE html>
 <html>
+<style>
+th {
+	background-color: #f2f2f2; 
+	text-align: center;
+}
+</style>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>

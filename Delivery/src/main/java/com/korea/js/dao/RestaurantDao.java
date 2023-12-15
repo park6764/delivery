@@ -27,4 +27,16 @@ public interface RestaurantDao {
 	 * @return 레스토랑 메뉴
 	 */
 	public List<Restaurant> restaurant(Long restaurantId);
+	/**
+	 * 주문을 위한 레스토랑 정보
+	 * @param restaurantId 레스토랑 아이디
+	 * @return 레스토랑 정보
+	 */
+	public Restaurant restaurantSalesAcorn(Long restaurantId);
+	/**
+	 * 레스토랑 매출 업데이트
+	 * @param restaurantId 레스토랑 아이디
+	 * @return 업데이트 성공 시 1, 실패 시 0;
+	 */
+	public int restaurantSalesUpdate(Restaurant restaurant);
 }

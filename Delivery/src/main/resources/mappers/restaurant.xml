@@ -42,6 +42,27 @@
 		WHERE
 		    M.RESTAURANTID = #{ restaurantId }											  /* param 레스토랑 아이디 */
 	</select>
+	<!-- 주문을 위한 레스토랑 정보 -->
+	<select id="restaurantSalesAcorn" resultType="com.korea.js.vo.Restaurant">
+		SELECT	
+			OWNERID                                                                       /* 오너 아이디 */
+			, DAILYSALES                                                                  /* 일일 매출 */
+			, DELIYSALESDT                                                                /* 일일 매출 일 */
+			, TOTALSALES                                                                  /* 총 매출 */
+		FORM                                                                           
+			RESTAURANT                                                                    /* 레스토랑 테이블 */
+		WHERE                                                                             
+			RESTAURANTID = #{ restaurantId }                                              /* param 레스토랑 아이디 */
+	</select>
+	<!-- 레스토랑 매출 업데이트 -->
+	<update id="restaurantSalesUpdate">
+		UPDATE RESTAURANT SET
+			DAILYSALES = #{ dailySales }  
+			, DELIYSALESDT = #{ dailySalesDt }
+			, TOTALSALES = #{ totalSales }
+		WHERE
+			RESTAURANTID = #{ restaurantId }                                              /* param 레스토랑 아이디 */
+	</update>
 </mapper>
 
 

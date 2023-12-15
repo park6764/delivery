@@ -97,7 +97,7 @@
 			USER                                                    /* 유저 테이블 */        
 		WHERE                                                                           
 			USERID = #{ userId }                                    /* param 유저 아이디 */     
-	</select>                                                                               
+	</select>                                                                            
 </mapper>
 
 

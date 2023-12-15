@@ -44,6 +44,10 @@ select:hover {
 	padding-left: 15px;
 	width: 350px;
 }
+th {
+	background-color: #f2f2f2; 
+	text-align: center;
+}
 </style>
 <head>
 <meta charset="UTF-8">

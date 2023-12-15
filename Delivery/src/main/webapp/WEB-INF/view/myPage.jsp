@@ -16,13 +16,13 @@
 	<br>
 		<div style="display: flex; text-align: center; justify-content: center;">
 			<p class=pTag>
-				<a href="#">	
+				<a href="">	
 					<img class=ap src="/img/기본프로필.png" width=270 height="270" style="margin: 50px;"><br>
 				</a>
 				<span>내 정보 수정</span>
 			</p>
 			<p class=pTag>
-				<a href="#">	
+				<a href="/myPage/orderHistory.do">	
 					<img class=ap src="/img/주문서.png" width=270 height="270" style="margin: 50px;"><br>
 				</a>
 				주문내역

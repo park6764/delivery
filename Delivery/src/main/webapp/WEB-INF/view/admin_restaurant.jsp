@@ -38,6 +38,10 @@
 .Th{
 	padding-right: 60px;
 }
+th {
+	background-color: #f2f2f2; 
+	text-align: center;
+}
 </style>
 <head>
 <meta charset="UTF-8">
@@ -119,6 +123,8 @@
 	// 모달 숨김
 	modalCloseButton.addEventListener('click', () => {
 		modal.classList.add('hidden');
+		document.getElementById('restaurantName').value = "";
+		document.getElementById('ownerId').value = "";
 	});
 	
 	// 폼 유효성 검사

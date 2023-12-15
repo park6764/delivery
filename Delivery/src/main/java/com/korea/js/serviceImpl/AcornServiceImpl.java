@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.korea.js.dao.AcornDao;
 import com.korea.js.dao.UserDao;
@@ -19,6 +20,8 @@ public class AcornServiceImpl implements AcornService {
 	@Autowired
 	private UserDao userDao;
 	
+	// 도토리 추가
+	@Transactional
 	@Override
 	public int acornCharging(Acorn acorn) {
 		// 현재 시간 가져오기

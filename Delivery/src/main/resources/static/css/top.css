@@ -34,10 +34,7 @@ a {
 	border-bottom: 2px solid #ddd;
     height: 50px;
 }
-th {
-	background-color: #f2f2f2; 
-	text-align: center;
-}
+
 
 .tel:invalid {
   background-color: ivory;

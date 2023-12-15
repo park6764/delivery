@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.korea.js.dao.OrderDao">
+	<insert id="inserOrder">
+		INSERT INTO `ORDER` (
+		    RESTAURANTID                                          	/* 레스토랑 아이디 */ 
+		    , USERID                                                /* 주문자 아이디 */
+		    , MENUS                                                 /* 주문 메뉴 이름 */ 
+		    , MENUCOUNT                                             /* 주문 메뉴 수량 */
+		    , MENUPRICE                                             /* 주문 메뉴 가격 */ 
+		    , TOTALACORN                                            /* 총 주문 금액 */
+		) VALUES (
+			#{ restaurantId }     									/* param 레스토랑 아이디 */ 
+		    , #{ userId }           								/* param 주문자 아이디 	*/
+		    , #{ menus }            								/* param 주문 메뉴 이름 */ 
+		    , #{ menuCount }        								/* param 주문 메뉴 수량 */
+		    , #{ menuPrice }        								/* param 주문 메뉴 가격 */ 
+		    , #{ totalAcorn }       	 							/* param 총 주문 금액 	*/									
+		);
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

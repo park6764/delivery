@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.korea.js.dao.AcornDao">
+	<!-- 도토리 충전 -->
 	<insert id="acornCharging">
 		INSERT INTO ACORN(
 			FROMUSERID                                           	/* 누가 */
@@ -11,6 +12,24 @@
 		    #{ fromUserId }											/* param 누가 */   
 		    , #{ inputDt }											/* param 충전 날짜 */     
 		    , #{ inputAcorn }										/* param 충전 도토리 */     
+		)
+	</insert>
+	<!-- 메뉴 주문 -->
+	<insert id="orderAcorn">
+		INSERT INTO ACORN (
+			FROMUSERID                                              /* 입금자 아이디 */    
+			, INPUTDT                                               /* 입금 받은 날짜 */    
+			, INPUTACORN                                            /* 입금 받은 도토리 */  
+			, TOUSERID                                              /* 출금자 아이디 */      
+			, OUTPUTDT                                              /* 출금한 날짜 */   
+			, OUTPUTACORN                                           /* 출금 도토리 */     
+		) VALUES (
+			#{ fromUserId }											/* param 입금자 아이디 */   
+		    , #{ inputDt }											/* param 입금 받은 날짜 */     
+		    , #{ inputAcorn }										/* param 입금 받은 도토리 */     
+			, #{ toUserId }											/* param 출금자 아이디 */   
+		    , #{ outputDt }											/* param 출금한 날짜 */     
+		    , #{ outputAcorn }										/* param 출금 도토리 */     
 		)
 	</insert>
 </mapper>
